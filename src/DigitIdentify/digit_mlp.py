@@ -4,6 +4,10 @@ from keras.layers import Dense, Dropout
 from keras.optimizers import RMSprop
 import utils
 
+"""
+数字识别mlp模型
+"""
+
 batch_size = 256
 num_classes = 11
 epochs = 20

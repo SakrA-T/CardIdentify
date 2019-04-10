@@ -4,6 +4,10 @@ from keras.layers import Dense, Dropout, Flatten
 from keras.layers import Conv2D, MaxPooling2D
 import utils
 
+"""
+数字识别cnn模型
+"""
+
 batch_size = 256
 num_classes = 11
 epochs = 20
@@ -48,6 +52,8 @@ model.add(Flatten())
 model.add(Dense(128, activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(num_classes, activation='softmax'))
+
+model.summary()
 
 model.compile(loss=keras.losses.categorical_crossentropy,
               optimizer=keras.optimizers.Adadelta(),

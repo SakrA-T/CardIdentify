@@ -4,6 +4,10 @@ from sklearn.model_selection import train_test_split
 import keras
 import os
 
+"""
+图片处理与数据加载相关工具方法
+"""
+
 # 数字列表
 digit_list = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '']
 
@@ -203,6 +207,21 @@ def img_2_digits_cnn(im_path, model_path='model_cnn.h5'):
     x = im.reshape(im.shape[0], im_h, w, 1)
     model = keras.models.load_model(model_path)       # 加载训练好的模型
     y = model.predict(x)        # 预测
+    res = ''
+    for i in range(y.shape[0]):
+        res += to_digit(y[i])
+
+    return res
+
+
+def img_2_digits(x, model):
+    """
+    使用训练好的模型，预测结果
+    :param x:
+    :param model:
+    :return:
+    """
+    y = model.predict(x)
     res = ''
     for i in range(y.shape[0]):
         res += to_digit(y[i])

@@ -2,6 +2,10 @@ from imageio import imwrite
 import matplotlib.pyplot as plt
 import os
 
+"""
+将所有rgb图片转换成灰度图，放入 /data/images_gray/ 中
+"""
+
 
 def rgb2gray(rgb):
     """
@@ -17,6 +21,12 @@ def rgb2gray(rgb):
 im_dir = '../../data/images/'
 im_aug_dir = '../../data/images_aug/'
 im_gray_dir = '../../data/images_gray/'
+
+
+files = os.listdir(im_dir)
+for file in files:
+    im = plt.imread(os.path.join(im_dir, file))
+    imwrite(im_gray_dir + file, rgb2gray(im))
 
 
 files = os.listdir(im_aug_dir)

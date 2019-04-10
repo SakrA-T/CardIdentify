@@ -4,6 +4,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 from imageio import imwrite
 
+"""
+数据增强实现
+将 1084 张图片扩为 1084*80 张
+"""
 
 # 常量
 im_h = 46       # 图片高度
@@ -66,6 +70,7 @@ files = os.listdir(im_dir)
 n = 10
 
 # 1 - 10
+# 缩放与旋转
 im_gen1 = image.ImageDataGenerator(zoom_range=[2, 1], rotation_range=40)
 
 for file in files:
