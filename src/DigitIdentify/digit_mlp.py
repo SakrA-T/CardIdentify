@@ -32,7 +32,7 @@ print('cate y')
 print('y_train: ', y_train.shape)
 print('y_test: ', y_test.shape)
 
-# Test accuracy: 0.97
+# Test accuracy: 0.96
 model = Sequential()
 model.add(Dense(512, activation='relu', input_shape=(x_train.shape[1],)))
 model.add(Dropout(0.2))
